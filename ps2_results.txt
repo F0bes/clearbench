@@ -1,0 +1,23 @@
+Tested on my 39001
+===== TEST RESULTS =====
+BigSprite (The naive approach)
+  DMA time: 68 cycles (4qw)
+  FINISH time: 79945 cycles
+Double Half Clear (Set the zbuf to the middle of the frame, clear the top half.)
+  DMA time: 68 cycles (4qw)
+  FINISH time: 39199 cycles
+Page Clear (Clear the framebuffer in 64x32 pages)
+  DMA time: 34122 cycles (283qw)
+  FINISH time: 40496 cycles
+Page Clear (With DHC) (The two previous tests together)
+  DMA time: 13473 cycles (143qw)
+  FINISH time: 20466 cycles
+Interleaved Clear (FBP=ZBP and interleave clear by drawing 32x32 sprites)
+  DMA time: 15448 cycles (283qw)
+  FINISH time: 18399 cycles
+VIS Clear (FBW = 1 and tall 64x2048 sprites)
+  DMA time: 104 cycles (13qw)
+  FINISH time: 40567 cycles
+VIS Clear (interleaved) (The VIS clear with an interleaved approach)
+  DMA time: 110 cycles (16qw)
+  FINISH time: 18514 cycles
